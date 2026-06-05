@@ -11,6 +11,8 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY package.json bun.lock tsconfig.json ./
 COPY src ./src
 COPY scripts ./scripts
+COPY admin ./admin
+COPY templates ./templates
 
 EXPOSE 3131
 CMD ["bun", "run", "src/cli.ts", "serve", "--http", "--bind", "0.0.0.0", "--port", "3131", "--token-ttl", "86400"]
